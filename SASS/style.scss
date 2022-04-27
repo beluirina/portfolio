@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css?family=Assistant:100, 400,700|Playfair+Display:900");
+@use 'abstracts/bubble'
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+:not(.fa-brands){
+  font-family: var(--ff-body);
+}
+
+:root {
+    --clr-default-light: white;
+    --clr-background: rgba(255, 242, 195, 0.194);
+    --clr-default-dark: #5C5C5C;
+    
+  --foreground: var(--clr-default-dark);
+  --background: var(--clr-default-light);
+
+    --clr-titles-subtitles: #7B7B7B;
+    --language-clr: #8998AA;
+//HOME
+    --gradient-h1: -webkit-linear-gradient(150deg, #78e4ff 60% , #FA66DD 80%);
+    --gradient-CV-button: -webkit-linear-gradient(353deg, rgba(255,50,50,1) 19%, rgba(255,206,33,1) 100%);
+
+//GLASS - skills page
+    // --background-glass-main-clr: ;
+    // --background-glass-secondary-clr: ;
+    --in-glass-boxes:  -webkit-linear-gradient(180deg, rgba(153,153,153,1) 77%, rgba(255,255,255,0.7) 100%);
+
+//PROJECTS - and contact
+    --green: #19EB9F;
+    --yellow: #FCFD67;
+    --red:  #FD7396;
+    
+  --ff-body: "Assistant", sans-serif;
+
+  --blur: 30px;
+  
+
+  }
+
+
+.darkmode{
+    --clr-default-light: #313131;
+    --clr-default-dark: white;
+
+}
+
+body{
+    margin: 10em;
+    background-color: var(--clr-background);
+    }
+header{
+
+    position: fixed;
+    top: 0;
+    width: 1200px;
+    font-size: 30px;
+    background-color: transparent;
+    padding: 25px;
+    .dark-mode-toggle { 
+        position: absolute;
+        top: 1em;
+        left: 0;
+        color: var(--foreground);
+        border: 2px solid currentColor;
+        background: transparent;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+    }
+    nav{
+        display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+        
+        float: right;
+
+        a{
+            padding: 25px;
+            color: var(--foreground);
+            top: 1em;
+            text-decoration: none;
+            font-size: 30px;
+            text-align: left;
+
+        }
+        button{
+            font-size: 30px;
+            position: relative;
+            top: -10px;
+            padding: 10px;
+            border: solid 5px transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 2px 1000px 1px #fff inset;
+
+
+        }
+    }
+
+}
+
+//HOME
+.home--container {
+    
+    .introduction{
+        width: 1295px;
+        left: 187px;
+        padding-top: 40px;
+        #greeting{
+            color: var(--clr-titles-subtitles);
+
+                    //spot
+                    font-size: 2em;
+                    margin-left: 1em;
+                    margin-bottom: -3em;
+
+        }
+        .gradient-title{
+            overflow: hidden;
+            background-color: #ff48fa;
+            background-image: var(--gradient-h1);
+            background-size: 100%;
+            background-repeat: repeat;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 8em;
+            line-height: 0.8em;
+            width: 1166px;
+            margin-left: 100px;
+            border-radius: 0px;
+
+
+        }
+        #developer{
+            color: var(--clr-titles-subtitles);
+                        //spot
+                        font-size: 2em;
+                        padding-left: 20em;
+                        font-weight: medium;
+                        margin-top: -2.5em;
+        }
+    }
+    img{
+        width: 200px;
+    }
+    .language-settings{
+        color: var(--language-clr);
+    }
+}
+.yellow-deco{
+    position: absolute;
+    background-color: yellow;
+    width: 1000px;
+    height: 400px;
+
+    left: -300px;
+    transform: rotate(20deg);
+
+    display: none;
+}
+
+//skills
+.skills--container{
+    display: grid;
+    margin-top: 300px;
+    .bubble1{
+        left: 200px;
+
+
+        @include bubble(#FF9F9F);
+        @include blur-info(var(--blur));
+        
+    }
+    .bubble2{
+        right: 200px;
+
+        @include bubble(#EEC2F7);
+        @include blur-info(var(--blur))
+
+    }
+    .bubble3{
+        right: 200px;
+
+        @include bubble(#EEC2F7);
+        @include blur-info(var(--blur))
+
+    }
+    .shadow{
+        @include bubble(#B09DFF);
+
+        margin-top: 350px;
+        right: 400px;
+
+        width: 700px;
+        height: 60px;
+        border-radius: 300px;
+
+        @include blur-info(var(--blur))
+
+    }
+
+
+    .glass{
+        margin: 20px;
+        margin: auto;
+        padding-bottom: 30px;
+
+
+        background-color: rgba(245, 245, 245, 0.397);
+        border: solid 1px white ;
+        border-radius: 50px ;
+        width: 800px;
+
+        color: var(--clr-titles-subtitles);
+        h3{
+            margin-left: 50px;
+            margin-bottom: -10px;
+            font-size: 40px;
+            font-weight: normal;
+        }
+        .programming-tools{
+        columns: 2;
+        list-style: none;
+        width: 750px;
+        padding: auto;
+        margin-left: 60px;
+
+            li{
+                height: 40px;
+                width: 250px;
+
+                padding: 5px;
+                margin: 5px;
+
+                color: var(--clr-default-light);
+                font-size: 20px;
+
+                text-align: center;
+                border-radius: 8px;
+                background-color: rgb(174, 174, 174);
+                i{
+                    
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    
+}
+
+//projects
+.side-scroll-buttons {
+    .--first{
+        background-color: var(--green);
+    }
+    .--second{
+        background-color: var(--yellow);
+    }
+    .--third{
+        background-color: var(--red)
+    }
+}
+
+
+/********************
+*   Mobile Styles   *
+********************/
